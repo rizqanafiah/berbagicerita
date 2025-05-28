@@ -1,0 +1,405 @@
+/* Reset dan variabel */
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --accent-color: #E74C3C;
+    --background-color: #ECF0F1;
+    --text-color: #2C3E50;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.app-bar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+}
+
+.app-bar__brand h1 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.app-bar__navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.app-bar__navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.app-bar__navigation a:hover, .app-bar__navigation a:focus {
+    background: var(--secondary-color);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+}
+
+.app-bar__menu {
+    display: none;
+}
+
+.app-bar__menu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.app-bar__menu button:hover, .app-bar__menu button:focus {
+    background: var(--secondary-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    padding-top: 90px;
+}
+@media (max-width: 768px) {
+    main {
+        padding-top: 70px;
+    }
+}
+
+.story-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.story-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    background: #e0e0e0;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.story-card__content {
+    padding: 1rem;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+    min-height: 250px;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #e0e0e0;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    position: relative;
+    margin-top: 2rem;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .app-bar {
+        flex-direction: row;
+        padding: 1rem 1.2rem;
+    }
+    .app-bar__brand h1 {
+        font-size: 1.3rem;
+    }
+    .app-bar__menu {
+        display: block;
+    }
+    .app-bar__navigation {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 220px;
+        height: 100vh;
+        background: var(--primary-color);
+        transition: left 0.3s, box-shadow 0.3s;
+        z-index: 300;
+        box-shadow: 2px 0 16px rgba(44,62,80,0.10);
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        padding-top: 4.5rem;
+    }
+    .app-bar__navigation.open {
+        left: 0;
+    }
+    .app-bar__navigation ul {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1.5rem;
+    }
+    .app-bar__navigation a {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+    }
+    .story-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .app-bar__navigation {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        left: 0 !important;
+        transition: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding-top: 0 !important;
+    }
+    .app-bar__navigation ul {
+        flex-direction: row;
+        padding: 0;
+    }
+    .app-bar__menu {
+        display: none !important;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.view-transition {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.error-message h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.error-message p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.empty-state h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.button, button[type="submit"] {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 1.5rem;
+}
+
+.button:hover, button[type="submit"]:hover {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: translateY(-2px) scale(1.03);
+    color: #fff;
+}
+
+.button:active, button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.success-message {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.success-message h2 {
+    color: #27ae60;
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.camera-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.camera-preview video,
+.camera-preview img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+.camera-preview .button {
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: flex-end;
+}
+
+.form-group .button.camera-open {
+    margin-bottom: 1rem;
+} 
